@@ -772,11 +772,34 @@ code {
 }
 
 .demo-timestamp {
-  color: #3273dc;
-  background: #e8f0fe;
-  padding: 0.1em 0.4em;
+  color: white;
+  background: #3273dc;
+  padding: 0.15em 0.55em 0.15em 0.4em;
   border-radius: 4px;
   font-family: monospace;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+  user-select: none;
+}
+
+.demo-timestamp::before {
+  content: '▶\00a0';
+  font-size: 0.75em;
+  vertical-align: 0.05em;
+}
+
+.demo-timestamp:hover {
+  background: #2160c4;
+  transform: translateY(-1px);
+}
+
+.demo-timestamp.is-playing {
+  background: #00a896;
+}
+
+.demo-timestamp.is-playing::before {
+  content: '⏸\00a0';
 }
 
 

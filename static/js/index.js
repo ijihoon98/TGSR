@@ -119,6 +119,17 @@ function setupVideoCarouselAutoplay() {
     });
 }
 
+// Shared audio player for timestamp grounded segments
+var tsAudio = new Audio();
+var $currentTsBtn = null;
+
+tsAudio.addEventListener('ended', function() {
+    if ($currentTsBtn) {
+        $currentTsBtn.removeClass('is-playing');
+        $currentTsBtn = null;
+    }
+});
+
 $(document).ready(function() {
     // Demo tab switching
     $('.demo-tabs li').on('click', function(e) {
@@ -128,6 +139,37 @@ $(document).ready(function() {
         var target = $(this).data('target');
         $('.demo-content').removeClass('is-active');
         $('#' + target).addClass('is-active');
+    });
+
+    // Timestamp click-to-play grounded segment
+    $(document).on('click', '.demo-timestamp', function() {
+        var $btn = $(this);
+        var src = $btn.data('audioSrc');
+        if (!src) return;
+
+        // Same button: toggle play/pause
+        if ($currentTsBtn && $currentTsBtn.is($btn)) {
+            if (tsAudio.paused) {
+                tsAudio.play();
+                $btn.addClass('is-playing');
+            } else {
+                tsAudio.pause();
+                $btn.removeClass('is-playing');
+            }
+            return;
+        }
+
+        // Different button: stop current first
+        if ($currentTsBtn) {
+            tsAudio.pause();
+            $currentTsBtn.removeClass('is-playing');
+        }
+
+        // Play new
+        tsAudio.src = src;
+        tsAudio.play();
+        $btn.addClass('is-playing');
+        $currentTsBtn = $btn;
     });
 
 
