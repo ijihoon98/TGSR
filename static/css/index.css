@@ -772,9 +772,9 @@ code {
 }
 
 .demo-timestamp {
-  color: #075985;
-  background: #e0f2fe;
-  border: 1.5px solid #7dd3fc;
+  color: #1e293b;
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5f5;
   padding: 0.15em 0.55em 0.15em 0.4em;
   border-radius: 4px;
   font-family: monospace;
@@ -791,15 +791,15 @@ code {
 }
 
 .demo-timestamp:hover {
-  background: #bae6fd;
-  border-color: #38bdf8;
+  background: #e0e7ff;
+  border-color: #818cf8;
   transform: translateY(-1px);
 }
 
 .demo-timestamp.is-playing {
-  color: #065f46;
-  background: #d1fae5;
-  border-color: #6ee7b7;
+  color: #1e3a8a;
+  background: #e0e7ff;
+  border-color: #6366f1;
 }
 
 .demo-timestamp.is-playing::before {
