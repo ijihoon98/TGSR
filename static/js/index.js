@@ -144,7 +144,7 @@ $(document).ready(function() {
     // Timestamp click-to-play grounded segment
     $(document).on('click', '.demo-timestamp', function() {
         var $btn = $(this);
-        var src = $btn.data('audioSrc');
+        var src = $btn.attr('data-audio-src');
         if (!src) return;
 
         // Same button: toggle play/pause

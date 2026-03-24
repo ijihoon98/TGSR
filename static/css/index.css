@@ -784,7 +784,7 @@ code {
 }
 
 .demo-timestamp::before {
-  content: '▶\00a0';
+  content: '\25B6\00A0';
   font-size: 0.75em;
   vertical-align: 0.05em;
 }
@@ -799,7 +799,7 @@ code {
 }
 
 .demo-timestamp.is-playing::before {
-  content: '⏸\00a0';
+  content: '\23F8\00A0';
 }
 
 
